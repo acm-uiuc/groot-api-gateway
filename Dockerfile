@@ -24,6 +24,7 @@ RUN go get github.com/gorilla/mux && \
     go install github.com/acm-uiuc/arbor/security && \
     go install github.com/acm-uiuc/arbor/server
 
+
 # Bundle app source
 ADD . /usr/src/app
 
@@ -33,6 +34,7 @@ RUN mkdir -p $GOPATH/src/github.com/acm-uiuc && \
 
 # Create folder for client key database
 RUN mkdir -p /var/groot-api-gateway/
+
 
 # Build groot
 ADD build.sh /usr/src/app
