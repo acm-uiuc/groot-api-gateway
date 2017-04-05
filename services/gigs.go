@@ -1,8 +1,8 @@
 /**
 * Copyright © 2017, ACM@UIUC
 *
-* This file is part of the Groot Project.  
-* 
+* This file is part of the Groot Project.
+*
 * The Groot Project is open source software, released under the University of
 * Illinois/NCSA Open Source License. You should have received a copy of
 * this license in a file with the distribution.
@@ -11,8 +11,10 @@
 package services
 
 import (
-    "net/http"
-    "github.com/acm-uiuc/groot/proxy"
+	"net/http"
+
+	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -22,62 +24,62 @@ const GigURL string = "http://localhost:8964"
 const GigFormat string = "JSON"
 
 //API Interface
-var GigsRoutes = RouteCollection{
-    Route{
+var GigsRoutes = services.RouteCollection{
+    services.Route{
         "ListGigs",
         "GET",
         "/gigs",
         ListGigs,
     },
-    Route{
+   services.Route{
         "NewGig",
         "POST",
         "/gigs",
         NewGig,
     },
-    Route{
+   services.Route{
         "GigInfo",
         "GET",
         "/gigs/{gig_id}",
         GigInfo,
     },
-    Route{
+   services.Route{
         "DeactivateGig",
         "PUT",
         "/gigs/{gig_id}",
         DeactivateGig,
     },
-    Route{
+   services.Route{
         "DeleteGig",
         "DELETE",
         "/gigs/{gig_id}",
         DeleteGig,
     },
-    Route{
+    services.Route{
         "ListClaims",
         "GET",
         "/gigs/claims",
         ListClaims,
     },
-    Route{
+   services.Route{
         "CreateClaim",
         "POST",
         "/gigs/claims",
         CreateClaim,
     },
-    Route{
+    services.Route{
         "ListSingleClaim",
         "GET",
         "/gigs/claims/{claim_id}",
         ListSingleClaim,
     },
-    Route{
+    services.Route{
         "AcceptClaim",
         "PUT",
         "/gigs/claims/{claim_id}",
         AcceptClaim,
     },
-    Route{
+    services.Route{
         "DeleteClaim",
         "DELETE",
         "/gigs/claims/{claim_id}",

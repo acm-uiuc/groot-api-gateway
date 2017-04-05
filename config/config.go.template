@@ -1,10 +1,19 @@
 package config
 
+import (
+    "github.com/acm-uiuc/arbor/proxy"
+    "github.com/acm-uiuc/arbor/security"
+)
+
+//Groot Specific configurations
 const RecruiterToken string = ""
 const AuthPrefix = "Basic "
 const AuthURL string = "http://localhost:8008"
 const AuthToken string = ""
 
-const AccessLogLocation string = "log/access.log"
-const ClientRegistryLocation string = "clients.db"
-const AccessControlPolicy string = "*"
+//Arbor configurations
+func LoadArborConfig() {
+    security.AccessLogLocation = "log/access.log"
+    security.ClientRegistryLocation = "clients.db"
+    proxy.AccessControlPolicy = "*"
+}
