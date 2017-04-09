@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const MerchURL string = "http://localhost:6969"
+const MerchURL string = config.MerchURL
 
 //Service Data Type
 const MerchFormat string = "JSON"

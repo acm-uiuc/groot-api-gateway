@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const UsersURL string = "http://localhost:8001"
+const UsersURL string = config.UsersURL
 
 //Service Data Type
 const UsersFormat string = "JSON"
