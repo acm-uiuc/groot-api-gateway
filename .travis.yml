@@ -1,5 +1,5 @@
 language: go
 script: 
-- ./build.sh
+- ./ci.sh
 notifications:
   email: false
