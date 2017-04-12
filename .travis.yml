@@ -1,5 +1,9 @@
 language: go
 install:
+- go get github.com/gorilla/mux
+- go get github.com/boltdb/bolt
+- go get github.com/kennygrant/sanitize
+- go get github.com/acm-uiuc/arbor
 - cp config/config.go.template config/config.go
 script: 
 - ./build.sh
