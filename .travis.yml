@@ -1,5 +1,6 @@
 language: go
 script: 
-- ./ci.sh
+- cp config/config.go.template config/config.go
+- ./build.sh
 notifications:
   email: false
