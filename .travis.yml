@@ -1,6 +1,6 @@
 language: go
 script: 
-- cp config/config.go.template config/config.go
+- cp /home/travis/gopath/src/github.com/acm-uiuc/groot-api-gateway/config/config.go.template /home/travis/gopath/src/github.com/acm-uiuc/groot-api-gateway/config/config/config.go
 - ./build.sh
 notifications:
   email: false
