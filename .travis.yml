@@ -1,6 +1,6 @@
 language: go
 install:
-- cp /home/travis/gopath/src/github.com/acm-uiuc/groot-api-gateway/config/config.go.template /home/travis/gopath/src/github.com/acm-uiuc/groot-api-gateway/config/config/config.go
+- cp config/config.go.template config/config.go
 script: 
 - ./build.sh
 notifications:
