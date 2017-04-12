@@ -1,5 +1,7 @@
 # GROOT
 
+[![Build Status](https://travis-ci.org/acm-uiuc/groot-api-gateway.svg?branch=master)](https://travis-ci.org/acm-uiuc/groot-api-gateway)
+
 Groot is the next generation web application serving the UIUC Chapter of ACM.
 It is the replacement for liquid which goes defunct 1/1/2016.
 The groot repo itself is an API Gateway written in Fall of 2015
