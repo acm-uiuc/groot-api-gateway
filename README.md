@@ -133,12 +133,12 @@ groot [-r | --register-client client_name] [-c | --check-registration token] [-u
 
 #### Creating a client key:
 ```
-docker-compose run groot ./build/groot-api-gateway -r <client_name>
+docker-compose run groot-api-gateway ./build/groot-api-gateway -r <client_name>
 ```
 
 #### Checking a client key: 
 ```
-docker-compose run groot ./build/groot-api-gateway -c <client_key>
+docker-compose run groot-api-gateway ./build/groot-api-gateway -c <client_key>
 ```
 
 #### Config Values
