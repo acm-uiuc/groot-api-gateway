@@ -1,0 +1,31 @@
+memo = "bd999c3d2eae4c7273b7ef694bd79e3e3cd78cd18edc628908be0c7e00889e44"
+
+[[projects]]
+  name = "github.com/acm-uiuc/arbor"
+  packages = [".","proxy","security"]
+  revision = "1cf34d7038bbc444cc12200cb9457b8395d9c4da"
+  version = "v0.1"
+
+[[projects]]
+  name = "github.com/boltdb/bolt"
+  packages = ["."]
+  revision = "583e8937c61f1af6513608ccc75c97b6abdf4ff9"
+  version = "v1.3.0"
+
+[[projects]]
+  name = "github.com/kennygrant/sanitize"
+  packages = ["."]
+  revision = "6a0bfdde8629a3a3a7418a7eae45c54154692514"
+  version = "v1.2"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["html","html/atom"]
+  revision = "da118f7b8e5954f39d0d2130ab35d4bf0e3cb344"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  revision = "9f30dcbe5be197894515a338a9bda9253567ea8f"
