@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 RUN go get github.com/gorilla/mux && \
     go get github.com/boltdb/bolt && \
     go get github.com/kennygrant/sanitize && \
-    go get github.com/acm-uiuc/arbor
+    go get github.com/acm-uiuc/arbor && \
     go install github.com/gorilla/mux && \
     go install github.com/boltdb/bolt && \
     go install github.com/kennygrant/sanitize && \
