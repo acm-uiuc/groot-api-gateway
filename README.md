@@ -2,16 +2,14 @@
 
 [![Build Status](https://travis-ci.org/acm-uiuc/groot-api-gateway.svg?branch=master)](https://travis-ci.org/acm-uiuc/groot-api-gateway)
 
-Groot is the next generation web application serving the UIUC Chapter of ACM.
-It is the replacement for liquid which goes defunct 1/1/2016.
-The groot repo itself is an API Gateway written in Fall of 2015
+This repo contains the API Gateway written in Fall of 2015
 It provides the following capabilities:
   * Easy registration of services
   * Universal Authentication for the entire application - via an external authentication provided (Atlassian crowd)
   * Proxying API calls
   * Managing inter-service communication
 
-Groot provides a JSON face to any service. When registering as service specify the data encoding and when requesting a resource though groot make the request using json.
+When registering as service specify the data encoding and when requesting a resource though groot make the request using json.
 
 Groot core development:
 
@@ -27,9 +25,9 @@ Questions on how to add your app to Groot or use the Groot API:
 
 Add the API spec in a new file (ex. todo.go) in the services package
 
-There is a set of proxy api calls defined in the proxy package that will route call to the backend services
+There is a set of proxy api calls defined by the Arbor framework which the API Gateway is written in. 
 
-AS OF 10/28/15
+AS OF 4/24/17
 ```go
 /**
  *  Pass the http Request from the client and the ResponseWriter it expects
@@ -38,7 +36,7 @@ AS OF 10/28/15
  *  Pass a authorization token (optional)
  *  Will call the service and return the result to the client.
  **/
- func GET(w http.ResponseWriter, url string, format string, token string, r *http.Request)
+ arbor.GET(w http.ResponseWriter, url string, format string, token string, r *http.Request)
 ```
 ```go
  /**
@@ -48,7 +46,7 @@ AS OF 10/28/15
   *  Pass a authorization token (optional)
   *  Will call the service and return the result to the client.
   **/
-  func POST(w http.ResponseWriter, url string, format string, token string, r *http.Request)
+  arbor.POST(w http.ResponseWriter, url string, format string, token string, r *http.Request)
 ```
 ```go
  /**
@@ -58,7 +56,7 @@ AS OF 10/28/15
   *  Pass a authorization token (optional)
   *  Will call the service and return the result to the client.
   **/
-  func PUT(w http.ResponseWriter, url string, format string, token string, r *http.Request)
+  arbor.PUT(w http.ResponseWriter, url string, format string, token string, r *http.Request)
 ```
 ```go
 /**
@@ -67,7 +65,7 @@ AS OF 10/28/15
  *  Pass a authorization token (optional)
  *  Will call the service and return the result to the client.
  **/
- func DELETE(w http.ResponseWriter, url string, format string, token string, r *http.Request)
+ arbor.DELETE(w http.ResponseWriter, url string, format string, token string, r *http.Request)
 ```
 
 All secret data should be kept in a file called config.go in the config directory
@@ -81,39 +79,18 @@ go get github.com/boltdb/bolt
 
 go get github.com/kennygrant/sanitize
 
-go install github.com/gorilla/mux
-
-go install github.com/boltdb/bolt
-
-go install github.com/kennygrant/sanitize
+go get github.com/acm-uiuc/arbor
 ```
 
-install packages
+Compile the service 
 
 ```sh
-go install github.com/acm-uiuc/groot/proxy
-
-go install github.com/acm-uiuc/groot/config
-
-go install github.com/acm-uiuc/groot/services
-
-go install github.com/acm-uiuc/groot/security
-```
-
-run the server
-
-```sh
-go run ./server/*.go
-```
-compile the service 
-
-```sh
-go build -o groot [PATH TO GROOT]/server
+./build.sh
 ```
 
 ## CLI 
 ```sh
-groot [-r | --register-client client_name] [-c | --check-registration token] [-u | --unsecured]
+groot-api-gateway [-r | --register-client client_name] [-c | --check-registration token] [-u | --unsecured]
 ```
 
 -r | --register-client *client_name*
