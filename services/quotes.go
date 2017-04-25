@@ -13,8 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
@@ -25,50 +24,50 @@ const QuotesURL string = config.QuotesURL
 const QuoteFormat string = "JSON"
 
 //API Interface
-var QuotesRoutes = services.RouteCollection{
-	services.Route{
+var QuotesRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"GetAllQuotes",
 		"GET",
 		"/quotes",
 		GetAllQuotes,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteQuote",
 		"DELETE",
 		"/quotes/{id}",
 		DeleteQuote,
 	},
-	services.Route{
+	arbor.Route{
 		"GetQuote",
 		"GET",
 		"/quotes/{id}",
 		GetQuote,
 	},
-	services.Route{
+	arbor.Route{
 		"CastVote",
 		"POST",
 		"/quotes/{id}/vote",
 		CastVote,
 	},
-	services.Route{
+	arbor.Route{
 		"ApproveQuote",
 		"PUT",
 		"/quotes/{id}/approve",
 		ApproveQuote,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteVote",
 		"DELETE",
 		"/quotes/{id}/vote",
 		DeleteVote,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateQuote",
 		"POST",
 		"/quotes",
 		CreateQuote,
 	},
-	services.Route{
+	arbor.Route{
 		"UpdateQuote",
 		"PUT",
 		"/quotes/{id}",
@@ -76,35 +75,35 @@ var QuotesRoutes = services.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func GetAllQuotes(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.GET(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func DeleteQuote(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.DELETE(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func GetQuote(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.GET(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func CreateQuote(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.POST(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func CastVote(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.POST(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func ApproveQuote(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.PUT(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func DeleteVote(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.DELETE(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
 
 func UpdateQuote(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
+	arbor.PUT(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }
