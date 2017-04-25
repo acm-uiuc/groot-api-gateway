@@ -14,10 +14,11 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const GroupsURL string = "http://localhost:9001"
+const GroupsURL string = config.GroupsURL
 
 //Service Data Type
 const GroupsFormat string = "JSON"

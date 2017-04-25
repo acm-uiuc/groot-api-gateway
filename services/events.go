@@ -13,24 +13,26 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/acm-uiuc/groot/services"
 )
 
 //Location
-const EventsURL string = "http://localhost:8002"
+const EventsURL string = config.EventsURL
 
 //Service Data Type
 const EventsFormat string = "JSON"
 
 //API Interface
-var EventsRoutes = arbor.RouteCollection{
-	arbor.Route{
+var EventsRoutes = services.RouteCollection{
+	services.Route{
 		"GetEvents",
 		"GET",
 		"/events",
 		GetEvents,
 	},
-	arbor.Route{
+	services.Route{
 		"GetUpcomingEvents",
 		"GET",
 		"/events/upcoming",
@@ -40,9 +42,9 @@ var EventsRoutes = arbor.RouteCollection{
 
 // services.Route handler
 func GetEvents(w http.ResponseWriter, r *http.Request) {
-	arbor.GET(w, EventsURL+r.URL.String(), EventsFormat, "", r)
+	proxy.GET(w, EventsURL+r.URL.String(), EventsFormat, "", r)
 }
 
 func GetUpcomingEvents(w http.ResponseWriter, r *http.Request) {
-	arbor.GET(w, EventsURL+r.URL.String(), EventsFormat, "", r)
+	proxy.GET(w, EventsURL+r.URL.String(), EventsFormat, "", r)
 }

@@ -13,30 +13,32 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const HardwareURL string = "http://localhost:4523/api/v1.0"
+const HardwareURL string = config.HardwareURL
 
 //Service Data Type
 const HardwareFormat string = "JSON"
 
 //API Interface
-var HardwareRoutes = arbor.RouteCollection{
-	arbor.Route{
+var HardwareRoutes = services.RouteCollection{
+	services.Route{
 		"NewItem",
 		"POST",
 		"/items/{id}",
 		NewSession,
 	},
-	arbor.Route{
+	services.Route{
 		"UpdateItem",
 		"PUT",
 		"/items/{id}",
 		EndUsersSessions,
 	},
-	arbor.Route{
+	services.Route{
 		"DeleteItem",
 		"DELETE",
 		"/item/{id}",
@@ -46,13 +48,13 @@ var HardwareRoutes = arbor.RouteCollection{
 
 // services.Route handler
 func NewItem(w http.ResponseWriter, r *http.Request) {
-	arbor.POST(w, HardwareURL+r.URL.String(), HardwareFormat, "", r)
+	proxy.POST(w, HardwareURL+r.URL.String(), HardwareFormat, "", r)
 }
 
 func DeleteItem(w http.ResponseWriter, r *http.Request) {
-	arbor.DELETE(w, HardwareURL+r.URL.String(), HardwareFormat, "", r)
+	proxy.DELETE(w, HardwareURL+r.URL.String(), HardwareFormat, "", r)
 }
 
 func UpdateItem(w http.ResponseWriter, r *http.Request) {
-	arbor.PUT(w, HardwareURL+r.URL.String(), HardwareFormat, "", r)
+	proxy.PUT(w, HardwareURL+r.URL.String(), HardwareFormat, "", r)
 }

@@ -14,10 +14,11 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const UsersURL string = "http://localhost:8001"
+const UsersURL string = config.UsersURL
 
 //Service Data Type
 const UsersFormat string = "JSON"
@@ -68,7 +69,7 @@ var UsersRoutes = arbor.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	arbor.GET(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }

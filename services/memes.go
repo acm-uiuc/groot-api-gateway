@@ -14,10 +14,11 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const MemeURL string = "http://localhost:42069"
+const MemesURL string = config.MemesURL
 
 //Service Data Type
 const MemeFormat string = "JSON"
@@ -74,35 +75,35 @@ var MemeRoutes = arbor.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func ListMemes(w http.ResponseWriter, r *http.Request) {
-	arbor.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func NewMeme(w http.ResponseWriter, r *http.Request) {
-	arbor.POST(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.POST(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func MemeInfo(w http.ResponseWriter, r *http.Request) {
-	arbor.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func DeleteMeme(w http.ResponseWriter, r *http.Request) {
-	arbor.DELETE(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func ApproveMeme(w http.ResponseWriter, r *http.Request) {
-	arbor.PUT(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func CastMemeVote(w http.ResponseWriter, r *http.Request) {
-	arbor.PUT(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func DeleteMemeVote(w http.ResponseWriter, r *http.Request) {
-	arbor.DELETE(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func GetRandomMeme(w http.ResponseWriter, r *http.Request) {
-	arbor.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	arbor.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }

@@ -14,10 +14,11 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const CreditsURL string = "http://localhost:8765"
+const CreditsURL string = config.CreditsURL
 
 //Service Data Type
 const CreditsFormat string = "JSON"
@@ -62,7 +63,7 @@ var CreditsRoutes = arbor.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func NewPayment(w http.ResponseWriter, r *http.Request) {
 	arbor.POST(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
