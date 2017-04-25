@@ -73,13 +73,7 @@ All secret data should be kept in a file called config.go in the config director
 Install Dependencies [First time setup]
 
 ```sh
-go get github.com/gorilla/mux
-
-go get github.com/boltdb/bolt
-
-go get github.com/kennygrant/sanitize
-
-go get github.com/acm-uiuc/arbor
+go get -u github.com/acm-uiuc/arbor/...
 ```
 
 Compile the service 
