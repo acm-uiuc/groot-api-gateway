@@ -12,7 +12,7 @@ install:
     - go get github.com/acm-uiuc/arbor
     - cp config/config.go.template config/config.go
     - docker build -t groot-api-gateway .
-    - docker run groot-api-gateway ./build/groot-api-gateway 
+#    - docker run groot-api-gateway ./build/groot-api-gateway 
 
 script: 
     - ./build.sh
