@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/acm-uiuc/arbor/server"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 	"github.com/acm-uiuc/groot-api-gateway/services"
 )
@@ -9,5 +9,5 @@ import (
 func main() {
 	config.LoadArborConfig()
 	Routes := services.RegisterAPIs()
-	server.Boot(Routes)
+	arbor.Boot(Routes)
 }

@@ -14,11 +14,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 )
 
-var Routes = services.RouteCollection{
-	services.Route{
+var Routes = arbor.RouteCollection{
+	arbor.Route{
 		"Index",
 		"GET",
 		"/",
@@ -30,17 +30,15 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "I AM GROOT!\n")
 }
 
-func RegisterAPIs() services.RouteCollection {
+func RegisterAPIs() arbor.RouteCollection {
 	Routes = append(Routes, AuthRoutes...)
-	Routes = append(Routes, CreditsRoutes...)
-	Routes = append(Routes, EventsRoutes...)
-	Routes = append(Routes, GigsRoutes...)
 	Routes = append(Routes, GroupsRoutes...)
-	Routes = append(Routes, HardwareRoutes...)
-	Routes = append(Routes, MemeRoutes...)
-	Routes = append(Routes, MerchRoutes...)
+	Routes = append(Routes, UsersRoutes...)
 	Routes = append(Routes, QuotesRoutes...)
 	Routes = append(Routes, RecruitersRoutes...)
-	Routes = append(Routes, UsersRoutes...)
+	Routes = append(Routes, HardwareRoutes...)
+	Routes = append(Routes, MemeRoutes...)
+	Routes = append(Routes, EventsRoutes...)
+	Routes = append(Routes, CreditsRoutes...)
 	return Routes
 }

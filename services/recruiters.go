@@ -13,13 +13,12 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const RecruiterURL string = config.RecruiterURL
+const RecruiterURL string = "http://localhost:4567"
 
 const RecruiterToken string = config.RecruiterToken
 
@@ -27,128 +26,128 @@ const RecruiterToken string = config.RecruiterToken
 const RecruiterFormat string = "JSON"
 
 //API Interface
-var RecruitersRoutes = services.RouteCollection{
-	services.Route{
+var RecruitersRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"GetJobs",
 		"GET",
 		"/jobs",
 		GetJobs,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateJob",
 		"POST",
 		"/jobs",
 		CreateJob,
 	},
-	services.Route{
+	arbor.Route{
 		"ApproveJob",
 		"PUT",
 		"/jobs/{job_id}/approve",
 		ApproveJob,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteJob",
 		"DELETE",
 		"/jobs/{job_id}",
 		DeleteJob,
 	},
-	services.Route{
+	arbor.Route{
 		"GetRecruiters",
 		"GET",
 		"/recruiters",
 		GetRecruiters,
 	},
-	services.Route{
+	arbor.Route{
 		"RecruiterLogin",
 		"POST",
 		"/recruiters/login",
 		RecruiterLogin,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateRecruiter",
 		"POST",
 		"/recruiters",
 		CreateRecruiter,
 	},
-	services.Route{
+	arbor.Route{
 		"GetRecruiter",
 		"GET",
 		"/recruiters/{recruiter_id}",
 		GetRecruiter,
 	},
-	services.Route{
+	arbor.Route{
 		"RenewRecruiter",
 		"PUT",
 		"/recruiters/{recruiter_id}/renew",
 		RenewRecruiter,
 	},
-	services.Route{
+	arbor.Route{
 		"ResetAllRecruiters",
 		"POST",
 		"/recruiters/reset",
 		ResetAllRecruiters,
 	},
-	services.Route{
+	arbor.Route{
 		"UpdateRecruiter",
 		"PUT",
 		"/recruiters/{recruiter_id}",
 		UpdateRecruiter,
 	},
-	services.Route{
+	arbor.Route{
 		"ResetRecruiter",
 		"POST",
 		"/recruiters/reset_password",
 		ResetRecruiter,
 	},
-	services.Route{
+	arbor.Route{
 		"GetRecruiterInvite",
 		"GET",
 		"/recruiters/{recruiter_id}/invite",
 		GetRecruiterInvite,
 	},
-	services.Route{
+	arbor.Route{
 		"SendRecruiterInvite",
 		"POST",
 		"/recruiters/{recruiter_id}/invite",
 		SendRecruiterInvite,
 	},
-	services.Route{
+	arbor.Route{
 		"ResetRecruiterInvite",
 		"POST",
 		"/recruiters/invite",
 		ResetRecruiterInvite,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteRecruiter",
 		"DELETE",
 		"/recruiters/{recruiter_id}",
 		DeleteRecruiter,
 	},
-	services.Route{
+	arbor.Route{
 		"GetStudents",
 		"GET",
 		"/students",
 		GetStudents,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateStudent",
 		"POST",
 		"/students",
 		CreateStudent,
 	},
-	services.Route{
+	arbor.Route{
 		"ApproveStudent",
 		"PUT",
 		"/students/{netid}/approve",
 		ApproveStudent,
 	},
-	services.Route{
+	arbor.Route{
 		"GetStudent",
 		"GET",
 		"/students/{netid}",
 		GetStudent,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteStudent",
 		"DELETE",
 		"/students/{netid}",
@@ -158,85 +157,85 @@ var RecruitersRoutes = services.RouteCollection{
 
 // services.Route handler
 func GetJobs(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func CreateJob(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func ApproveJob(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func DeleteJob(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.DELETE(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func GetRecruiters(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func RecruiterLogin(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func GetRecruiter(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func CreateRecruiter(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func RenewRecruiter(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func ResetAllRecruiters(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func UpdateRecruiter(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func ResetRecruiter(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func GetRecruiterInvite(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func SendRecruiterInvite(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func ResetRecruiterInvite(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func DeleteRecruiter(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.DELETE(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func CreateStudent(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.POST(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func ApproveStudent(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.PUT(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func GetStudents(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func GetStudent(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }
 
 func DeleteStudent(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
+	arbor.DELETE(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }

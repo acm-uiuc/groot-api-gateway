@@ -13,8 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
@@ -28,32 +27,32 @@ const AuthToken string = config.AuthPrefix + config.AuthToken
 const AuthFormat string = "JSON"
 
 //API Interface
-var AuthRoutes = services.RouteCollection{
-	services.Route{
+var AuthRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"NewSession",
 		"POST",
 		"/session",
 		NewSession,
 	},
-	services.Route{
+	arbor.Route{
 		"EndUsersSessions",
 		"DELETE",
 		"/session?username={username}",
 		EndUsersSessions,
 	},
-	services.Route{
+	arbor.Route{
 		"GetAuthenticatedUser",
 		"GET",
 		"/session/{token}",
 		GetAuthenticatedUser,
 	},
-	services.Route{
+	arbor.Route{
 		"ValidateSession",
 		"POST",
 		"/session/{token}",
 		ValidateSession,
 	},
-	services.Route{
+	arbor.Route{
 		"EndSession",
 		"DELETE",
 		"/session/{token}",
@@ -61,24 +60,24 @@ var AuthRoutes = services.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 // w = writer, r = reader
 func NewSession(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
+	arbor.POST(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
 }
 
 func EndUsersSessions(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
+	arbor.DELETE(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
 }
 
 func GetAuthenticatedUser(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
+	arbor.GET(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
 }
 
 func ValidateSession(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
+	arbor.POST(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
 }
 
 func EndSession(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
+	arbor.DELETE(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)
 }

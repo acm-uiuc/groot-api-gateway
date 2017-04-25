@@ -20,10 +20,7 @@ echo Building sanitize
 go get github.com/kennygrant/sanitize
 
 echo Building Arbor	
-go install github.com/acm-uiuc/arbor/proxy
-go install github.com/acm-uiuc/arbor/security
-go install github.com/acm-uiuc/arbor/services
-go install github.com/acm-uiuc/arbor/server
+go install github.com/acm-uiuc/arbor
 
 
 

@@ -13,50 +13,48 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
-	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/acm-uiuc/arbor"
 )
 
 //Location
-const CreditsURL string = config.CreditsURL
+const CreditsURL string = "http://localhost:8765"
 
 //Service Data Type
 const CreditsFormat string = "JSON"
 
 //API Interface
-var CreditsRoutes = services.RouteCollection{
-	services.Route{
+var CreditsRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"NewPayment",
 		"POST",
 		"/payment",
 		NewPayment,
 	},
-	services.Route{
+	arbor.Route{
 		"GetCreditsUser",
 		"GET",
 		"/credits/users/{netid}",
 		GetCreditsUser,
 	},
-	services.Route{
+	arbor.Route{
 		"GetCreditsUserMultiple",
 		"GET",
 		"/credits/users",
 		GetCreditsUserMultiple,
 	},
-	services.Route{
+	arbor.Route{
 		"GetTransactions",
 		"GET",
 		"/credits/transactions",
 		GetTransactions,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateTransaction",
 		"POST",
 		"/credits/transactions",
 		CreateTransaction,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteTransaction",
 		"DELETE",
 		"/credits/transactions/{id}",
@@ -66,25 +64,25 @@ var CreditsRoutes = services.RouteCollection{
 
 // services.Route handler
 func NewPayment(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
+	arbor.POST(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
 
 func GetCreditsUser(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
+	arbor.GET(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
 
 func GetCreditsUserMultiple(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
+	arbor.GET(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
 
 func GetTransactions(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
+	arbor.GET(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
 
 func CreateTransaction(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
+	arbor.POST(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
 
 func DeleteTransaction(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
+	arbor.DELETE(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
