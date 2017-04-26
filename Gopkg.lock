@@ -1,10 +1,10 @@
-memo = "e47b2af864d8db6efcbbd8db778f094392194e7c1eb56f4811749ed4acfba921"
+memo = "3fca8148a37ecc2869ef97f178d9835dfa168b8480674470fcc4cd3cce121ba2"
 
 [[projects]]
   name = "github.com/acm-uiuc/arbor"
-  packages = [".","proxy","security"]
-  revision = "a21e1242c6e983105815aeceb76fb9945b1f83b4"
-  version = "v0.2.1"
+  packages = [".","proxy","security","server","services"]
+  revision = "ba69d68115054ca57acfb7622a2a54403c6a737b"
+  version = "v0.2.3-alpha.2"
 
 [[projects]]
   branch = "master"

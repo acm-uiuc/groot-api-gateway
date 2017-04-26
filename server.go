@@ -9,5 +9,5 @@ import (
 func main() {
 	config.LoadArborConfig()
 	Routes := services.RegisterAPIs()
-	arbor.Boot(Routes)
+	arbor.Boot(Routes, 8000)
 }
