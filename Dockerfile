@@ -9,8 +9,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Download and install external dependencies
-RUN  go get -u github.com/golang/dep/... && \
-     dep ensure
+RUN  go get -u github.com/golang/dep/...
     
 # Bundle app source
 ADD . /usr/src/app
@@ -25,6 +24,6 @@ RUN mkdir -p /var/groot-api-gateway/
 
 # Build groot
 ADD build.sh /usr/src/app
-RUN ./build.sh
+RUN dep ensure && ./build.sh
 
 CMD ["./build/groot-api-gateway", "-u"]
