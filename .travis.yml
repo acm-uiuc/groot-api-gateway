@@ -6,10 +6,8 @@ services:
     - docker
 
 install:
-    - go get github.com/gorilla/mux
-    - go get github.com/boltdb/bolt
-    - go get github.com/kennygrant/sanitize
-    - go get github.com/acm-uiuc/arbor
+    - go get -u github.com/golang/dep/... 
+    - dep ensure
     - cp config/config.go.template config/config.go
     - docker build -t groot-api-gateway .
 #    - docker run groot-api-gateway ./build/groot-api-gateway 
