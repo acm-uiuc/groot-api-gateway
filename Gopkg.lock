@@ -3,8 +3,8 @@ memo = "3fca8148a37ecc2869ef97f178d9835dfa168b8480674470fcc4cd3cce121ba2"
 [[projects]]
   name = "github.com/acm-uiuc/arbor"
   packages = [".","proxy","security","server","services"]
-  revision = "ba69d68115054ca57acfb7622a2a54403c6a737b"
-  version = "v0.2.3-alpha.2"
+  revision = "814a6167d49819d3e25c331ee1f4c52b07a041b7"
+  version = "v0.2.3-rc"
 
 [[projects]]
   branch = "master"
