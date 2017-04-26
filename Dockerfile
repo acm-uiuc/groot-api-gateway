@@ -9,7 +9,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Download and install external dependencies
-RUN  go get -u github.com/golang/dep/...&& \
+RUN  go get -u github.com/golang/dep/... && \
      dep ensure
     
 # Bundle app source
