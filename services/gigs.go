@@ -45,10 +45,10 @@ var GigsRoutes = services.RouteCollection{
         GigInfo,
     },
    services.Route{
-        "DeactivateGig",
+        "EditGig",
         "PUT",
         "/gigs/{gig_id}",
-        DeactivateGig,
+        EditGig,
     },
    services.Route{
         "DeleteGig",
@@ -105,7 +105,7 @@ func CreateClaim(w http.ResponseWriter, r *http.Request) {
     proxy.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
-func DeactivateGig(w http.ResponseWriter, r *http.Request) {
+func EditGig(w http.ResponseWriter, r *http.Request) {
     proxy.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
