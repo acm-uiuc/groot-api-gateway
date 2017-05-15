@@ -13,9 +13,8 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
-    "github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/acm-uiuc/arbor"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
@@ -25,62 +24,62 @@ const GigsURL string = config.GigsURL
 const GigFormat string = "JSON"
 
 //API Interface
-var GigsRoutes = services.RouteCollection{
-    services.Route{
+var GigsRoutes = arbor.RouteCollection{
+    arbor.Route{
         "ListGigs",
         "GET",
         "/gigs",
         ListGigs,
     },
-   services.Route{
+   arbor.Route{
         "NewGig",
         "POST",
         "/gigs",
         NewGig,
     },
-   services.Route{
+   arbor.Route{
         "GigInfo",
         "GET",
         "/gigs/{gig_id}",
         GigInfo,
     },
-   services.Route{
+   arbor.Route{
         "EditGig",
         "PUT",
         "/gigs/{gig_id}",
         EditGig,
     },
-   services.Route{
+   arbor.Route{
         "DeleteGig",
         "DELETE",
         "/gigs/{gig_id}",
         DeleteGig,
     },
-    services.Route{
+    arbor.Route{
         "ListClaims",
         "GET",
         "/gigs/claims",
         ListClaims,
     },
-   services.Route{
+   arbor.Route{
         "CreateClaim",
         "POST",
         "/gigs/claims",
         CreateClaim,
     },
-    services.Route{
+    arbor.Route{
         "ListSingleClaim",
         "GET",
         "/gigs/claims/{claim_id}",
         ListSingleClaim,
     },
-    services.Route{
+    arbor.Route{
         "AcceptClaim",
         "PUT",
         "/gigs/claims/{claim_id}",
         AcceptClaim,
     },
-    services.Route{
+    arbor.Route{
         "DeleteClaim",
         "DELETE",
         "/gigs/claims/{claim_id}",
@@ -90,41 +89,41 @@ var GigsRoutes = services.RouteCollection{
 
 //Route handler
 func ListGigs(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func NewGig(w http.ResponseWriter, r *http.Request) {
-    proxy.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func GigInfo(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func CreateClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func EditGig(w http.ResponseWriter, r *http.Request) {
-    proxy.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
+    	arbor.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeleteGig(w http.ResponseWriter, r *http.Request) {
-    proxy.DELETE(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.DELETE(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func ListClaims(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func ListSingleClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func AcceptClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeleteClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.DELETE(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.DELETE(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }

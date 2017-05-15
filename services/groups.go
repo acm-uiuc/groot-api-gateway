@@ -13,8 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
@@ -25,26 +24,26 @@ const GroupsURL string = config.GroupsURL
 const GroupsFormat string = "JSON"
 
 //API Interface
-var GroupsRoutes = services.RouteCollection{
-	services.Route{
+var GroupsRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"GetGroupTypes",
 		"GET",
 		"/groups",
 		GetGroupTypes,
 	},
-	services.Route{
+	arbor.Route{
 		"GetGroups",
 		"GET",
 		"/groups/{groupType}",
 		GetGroups,
 	},
-	services.Route{
+	arbor.Route{
 		"GetGroup",
 		"GET",
 		"/groups/{groupType}/{groupName}",
 		GetGroup,
 	},
-	services.Route{
+	arbor.Route{
 		"IsGroupMember",
 		"GET",
 		"/groups/{groupType}/{groupName}?isMember={netid}",
@@ -52,19 +51,19 @@ var GroupsRoutes = services.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func GetGroupTypes(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
+	arbor.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
 }
 
 func GetGroups(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
+	arbor.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
 }
 
 func GetGroup(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
+	arbor.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
 }
 
 func IsGroupMember(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
+	arbor.GET(w, GroupsURL+r.URL.String(), GroupsFormat, "", r)
 }

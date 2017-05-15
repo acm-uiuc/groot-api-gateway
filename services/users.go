@@ -13,8 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
@@ -25,44 +24,44 @@ const UsersURL string = config.UsersURL
 const UsersFormat string = "JSON"
 
 //API Interface
-var UsersRoutes = services.RouteCollection{
-	services.Route{
+var UsersRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"GetUsers",
 		"GET",
 		"/users",
 		GetUsers,
 	},
-	services.Route{
+	arbor.Route{
 		"IsMember",
 		"GET",
 		"/users/{netid}/is_member",
 		IsMember,
 	},
-	services.Route{
+	arbor.Route{
 		"NewUser",
 		"POST",
 		"/users",
 		NewUser,
 	},
-	services.Route{
+	arbor.Route{
 		"ConfirmUser",
 		"PUT",
 		"/users/{user_id}/paid",
 		ConfirmUser,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteUser",
 		"DELETE",
 		"/users/{user_id}",
 		DeleteUser,
 	},
-	services.Route{
+	arbor.Route{
 		"UsersLogin",
 		"POST",
 		"/users/login",
 		UsersLogin,
 	},
-	services.Route{
+	arbor.Route{
 		"UsersLogout",
 		"POST",
 		"/users/logout",
@@ -70,31 +69,31 @@ var UsersRoutes = services.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func GetUsers(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.GET(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }
 
 func IsMember(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.GET(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }
 
 func NewUser(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.POST(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }
 
 func ConfirmUser(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.PUT(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.DELETE(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }
 
 func UsersLogin(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.POST(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }
 
 func UsersLogout(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, UsersURL+r.URL.String(), UsersFormat, "", r)
+	arbor.POST(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }

@@ -8,24 +8,8 @@ mkdir -p log/prod
 #			I N S T A L L   G R O O T   A P I   G A T E W A Y 		    #
 #																		#
 #																		#
-#########################################################################
-	
-echo Building mux	
-go install github.com/gorilla/mux
-
-echo Building boltdb
-go install github.com/boltdb/bolt
-
-echo Building sanitize
-go get github.com/kennygrant/sanitize
-
-echo Building Arbor	
-go install github.com/acm-uiuc/arbor/proxy
-go install github.com/acm-uiuc/arbor/security
-go install github.com/acm-uiuc/arbor/services
-go install github.com/acm-uiuc/arbor/server
-
-
+#########################################################################	
+go get -u github.com/acm-uiuc/arbor/...
 
 echo Building config
 go install github.com/acm-uiuc/groot-api-gateway/config

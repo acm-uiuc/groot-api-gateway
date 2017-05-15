@@ -13,8 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
@@ -25,74 +24,74 @@ const MerchURL string = config.MerchURL
 const MerchFormat string = "JSON"
 
 //API Interface
-var MerchRoutes = services.RouteCollection{
-	services.Route{
+var MerchRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"GetMerchLocations",
 		"GET",
 		"/merch/locations",
 		GetMerchLocations,
 	},
-	services.Route{
+	arbor.Route{
 		"GetMerchItemAtLocation",
 		"GET",
 		"/merch/locations/{location}",
 		GetMerchItemAtLocation,
 	},
-	services.Route{
+	arbor.Route{
 		"ClearMerchItemAtLocation",
 		"PUT",
 		"/merch/locations/{location}",
 		ClearMerchItemAtLocation,
 	},
-	services.Route{
+	arbor.Route{
 		"GetMerchUsers",
 		"GET",
 		"/merch/users",
 		GetMerchUsers,
 	},
-	services.Route{
+	arbor.Route{
 		"GetMerchUserByNetid",
 		"GET",
 		"/merch/users/{netid}",
 		GetMerchUserByNetid,
 	},
-	services.Route{
+	arbor.Route{
 		"GetMerchUserByPin",
 		"POST",
 		"/merch/users/pins",
 		GetMerchUserByPin,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateMerchTransaction",
 		"POST",
 		"/merch/transactions",
 		CreateMerchTransaction,
 	},
-	services.Route{
+	arbor.Route{
 		"GetItems",
 		"GET",
 		"/merch/items",
 		GetItems,
 	},
-	services.Route{
+	arbor.Route{
 		"CreateMerch",
 		"POST",
 		"/merch/items",
 		CreateMerch,
 	},
-	services.Route{
+	arbor.Route{
 		"GetMerch",
 		"GET",
 		"/merch/items/{id}",
 		GetMerch,
 	},
-	services.Route{
+	arbor.Route{
 		"UpdateMerch",
 		"PUT",
 		"/merch/items/{id}",
 		UpdateMerch,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteMerch",
 		"DELETE",
 		"/merch/items/{id}",
@@ -102,49 +101,49 @@ var MerchRoutes = services.RouteCollection{
 
 //Route handler
 func GetMerchLocations(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func GetMerchItemAtLocation(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func ClearMerchItemAtLocation(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func GetMerchUsers(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func GetMerchUserByNetid(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func GetMerchUserByPin(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func CreateMerchTransaction(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func GetItems(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func CreateMerch(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func GetMerch(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func UpdateMerch(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func DeleteMerch(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	arbor.DELETE(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }

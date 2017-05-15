@@ -13,8 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
@@ -25,50 +24,50 @@ const MemesURL string = config.MemesURL
 const MemeFormat string = "JSON"
 
 //API Interface
-var MemeRoutes = services.RouteCollection{
-	services.Route{
+var MemeRoutes = arbor.RouteCollection{
+	arbor.Route{
 		"ListMemes",
 		"GET",
 		"/memes",
 		ListMemes,
 	},
-	services.Route{
+	arbor.Route{
 		"NewMeme",
 		"POST",
 		"/memes",
 		NewMeme,
 	},
-	services.Route{
+	arbor.Route{
 		"MemeInfo",
 		"GET",
 		"/memes/{meme_id}",
 		MemeInfo,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteMeme",
 		"DELETE",
 		"/memes/{meme_id}",
 		DeleteMeme,
 	},
-	services.Route{
+	arbor.Route{
 		"ApproveMeme",
 		"PUT",
 		"/memes/{meme_id}/approve",
 		ApproveMeme,
 	},
-	services.Route{
+	arbor.Route{
 		"CastMemeVote",
 		"PUT",
 		"/memes/{meme_id}/vote",
 		CastMemeVote,
 	},
-	services.Route{
+	arbor.Route{
 		"DeleteMemeVote",
 		"DELETE",
 		"/memes/{meme_id}/vote",
 		DeleteMemeVote,
 	},
-	services.Route{
+	arbor.Route{
 		"GetRandomMeme",
 		"GET",
 		"/memes/random",
@@ -76,35 +75,35 @@ var MemeRoutes = services.RouteCollection{
 	},
 }
 
-// services.Route handler
+// arbor.Route handler
 func ListMemes(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func NewMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.POST(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func MemeInfo(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func DeleteMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func ApproveMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func CastMemeVote(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func DeleteMemeVote(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func GetRandomMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
+	arbor.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }

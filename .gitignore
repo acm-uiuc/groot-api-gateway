@@ -28,3 +28,7 @@ _testmain.go
 build
 
 config/config.go
+
+vendor/
+log/
+clients.db
