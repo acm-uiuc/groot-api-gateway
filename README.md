@@ -74,6 +74,7 @@ Make sure you have go dependencey management installed
 
 ```
 go get github.com/golang/dep/...
+```
 
 Install Dependencies [First time setup]
 
