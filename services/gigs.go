@@ -105,7 +105,7 @@ func CreateClaim(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditGig(w http.ResponseWriter, r *http.Request) {
-    proxy.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
+    	arbor.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeleteGig(w http.ResponseWriter, r *http.Request) {
