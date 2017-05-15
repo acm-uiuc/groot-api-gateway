@@ -70,10 +70,15 @@ AS OF 4/24/17
 
 All secret data should be kept in a file called config.go in the config directory
 
+Make sure you have go dependencey management installed 
+
+```
+go get github.com/golang/dep/...
+
 Install Dependencies [First time setup]
 
 ```sh
-go get -u github.com/acm-uiuc/arbor/...
+dep ensure 
 ```
 
 Compile the service 
