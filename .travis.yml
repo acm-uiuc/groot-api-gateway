@@ -1,28 +1,21 @@
-sudo: required 
-
+sudo: required
 language: go
-
 go:
-    - 1.8
-    - 1.8.x
-
+- 1.8
+- 1.8.x
 matrix:
   allow_failures:
-    - go: 1.8.x
-
-
-services: 
-    - docker
-
+  - go: 1.8.x
+services:
+- docker
 install:
-    - go get -u github.com/golang/dep/... 
-    - dep ensure
-    - cp config/config.go.template config/config.go
-    - docker build -t groot-api-gateway .
-#    - docker run groot-api-gateway ./build/groot-api-gateway 
-
-script: 
-    - ./build.sh
-
+- go get -u github.com/golang/dep/...
+- dep ensure
+- cp config/config.go.template config/config.go
+- docker build -t groot-api-gateway .
+script:
+- "./build.sh"
 notifications:
-    email: false
+  email: false
+  slack:
+    secure: uLYKU24h8GQfineHkwSFEPhkv9OMDDB2eOfWbjYQ3M5YurlcyzIeVqsLhfvtwKJqI+YwLkifTRhsfnnSQF4r0FkMVM5ehe7so8+hyQPC0xnxP1LMpRvgzMz8P5kT/itNe6IujkxI++vslOY/pLlkWIg9XYDQN3/c2LqCIvHPn5IqH4HHLIRIC7yHx6mW0OQBczlkxAzj48kqFZTBaWJN1FiD1x6dCBlzp8miZ/PNkBFsKU/yAqkgN7/JL2bqxHZpDnLJoEJsxamlx/3vR7r2PG1j28RudZfM6o0yoOqQcFSq23RldSIDINFudbsQh7F/O5aoY/KuhotCa8Kx1Wxge7eDEk0ttdiL6EOlK9Xjcmwr2V3PUwJkgYJEHmanqBfO4DZtc56IbWE6CLZQW0kubzA8619+/YkKt5m8f4FtN7gbKwKqWueyDudfTwx5wxbCRcCnV1OEF8Z/tfd7GOwWb9II1kif27zSf5snUu1XQHuWYxipr51zeHtGcVqGzmz5tiKzdIDfI35uHWmAnpHJ63T3zo/bKJFpWcUYcPM3b1FyAX20DRDOfFGOY1wYZ4z35fNV3Nfuimj3VVBKwckKgmuylTEvBL1z2nGB6nxijXDlXUijyO4MLi/H7HnhvftqrATDDf/QmgPNpm4UUN/zjYSDRQyNbTXnah8D51kgjtc=
