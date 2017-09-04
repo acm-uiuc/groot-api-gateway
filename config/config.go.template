@@ -9,6 +9,7 @@ import (
 const AuthPrefix = "Basic "
 const AuthURL string = "http://localhost:8008"
 const AuthToken string = ""
+const ADToken string = ""x
 
 //Service hosts
 const CreditsURL = "http://localhost:8765"
@@ -21,6 +22,7 @@ const MerchURL = "http://localhost:6969"
 const QuotesURL = "http://localhost:9494"
 const RecruiterURL = "http://localhost:4567"
 const UsersURL = "http://localhost:8001"
+const UsersURL = "http://engr-acm-winserv-01.acm.illinois.edu"
 
 //Arbor configurations
 func LoadArborConfig() {
