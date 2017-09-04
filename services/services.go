@@ -31,6 +31,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func RegisterAPIs() arbor.RouteCollection {
+	Routes = append(Routes, ADServiceRoutes...)
 	Routes = append(Routes, AuthRoutes...)
 	Routes = append(Routes, CreditsRoutes...)
 	Routes = append(Routes, EventsRoutes...)
