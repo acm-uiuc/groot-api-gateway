@@ -1,10 +1,10 @@
-memo = "0f2bde76f34b956143ae0942e8a65b3d7caf4206b660f57fc849b339a7763792"
+memo = "3fca8148a37ecc2869ef97f178d9835dfa168b8480674470fcc4cd3cce121ba2"
 
 [[projects]]
-  branch = "master"
   name = "github.com/acm-uiuc/arbor"
   packages = [".","proxy","security","server","services"]
-  revision = "007e265ddea547fe84b03aaeca543251260de5af"
+  revision = "814a6167d49819d3e25c331ee1f4c52b07a041b7"
+  version = "v0.2.3-rc"
 
 [[projects]]
   name = "github.com/boltdb/bolt"

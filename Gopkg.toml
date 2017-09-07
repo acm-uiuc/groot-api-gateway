@@ -1,4 +1,4 @@
 
 [[dependencies]]
-  branch = "master"
   name = "github.com/acm-uiuc/arbor"
+  version = ">=0.2.3-alpha, <1.0.0"
