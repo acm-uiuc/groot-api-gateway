@@ -21,6 +21,7 @@ const MerchURL = "http://localhost:6969"
 const NotificationURL = "http://localhost:1122"
 const QuotesURL = "http://localhost:9494"
 const RecruiterURL = "http://localhost:4567"
+const RequestURL = "http://localhost:5656"
 const UsersURL = "http://localhost:8001"
 
 //Arbor configurations
