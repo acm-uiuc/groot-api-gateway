@@ -13,8 +13,8 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/arbor-dev/arbor"
 )
 
 //Location
@@ -25,66 +25,66 @@ const GigFormat string = "JSON"
 
 //API Interface
 var GigsRoutes = arbor.RouteCollection{
-    arbor.Route{
-        "ListGigs",
-        "GET",
-        "/gigs",
-        ListGigs,
-    },
-   arbor.Route{
-        "NewGig",
-        "POST",
-        "/gigs",
-        NewGig,
-    },
-   arbor.Route{
-        "GigInfo",
-        "GET",
-        "/gigs/{gig_id}",
-        GigInfo,
-    },
-   arbor.Route{
-        "EditGig",
-        "PUT",
-        "/gigs/{gig_id}",
-        EditGig,
-    },
-   arbor.Route{
-        "DeleteGig",
-        "DELETE",
-        "/gigs/{gig_id}",
-        DeleteGig,
-    },
-    arbor.Route{
-        "ListClaims",
-        "GET",
-        "/gigs/claims",
-        ListClaims,
-    },
-   arbor.Route{
-        "CreateClaim",
-        "POST",
-        "/gigs/claims",
-        CreateClaim,
-    },
-    arbor.Route{
-        "ListSingleClaim",
-        "GET",
-        "/gigs/claims/{claim_id}",
-        ListSingleClaim,
-    },
-    arbor.Route{
-        "AcceptClaim",
-        "PUT",
-        "/gigs/claims/{claim_id}",
-        AcceptClaim,
-    },
-    arbor.Route{
-        "DeleteClaim",
-        "DELETE",
-        "/gigs/claims/{claim_id}",
-        DeleteClaim,
-    },
+	arbor.Route{
+		"ListGigs",
+		"GET",
+		"/gigs",
+		ListGigs,
+	},
+	arbor.Route{
+		"NewGig",
+		"POST",
+		"/gigs",
+		NewGig,
+	},
+	arbor.Route{
+		"GigInfo",
+		"GET",
+		"/gigs/{gig_id}",
+		GigInfo,
+	},
+	arbor.Route{
+		"EditGig",
+		"PUT",
+		"/gigs/{gig_id}",
+		EditGig,
+	},
+	arbor.Route{
+		"DeleteGig",
+		"DELETE",
+		"/gigs/{gig_id}",
+		DeleteGig,
+	},
+	arbor.Route{
+		"ListClaims",
+		"GET",
+		"/gigs/claims",
+		ListClaims,
+	},
+	arbor.Route{
+		"CreateClaim",
+		"POST",
+		"/gigs/claims",
+		CreateClaim,
+	},
+	arbor.Route{
+		"ListSingleClaim",
+		"GET",
+		"/gigs/claims/{claim_id}",
+		ListSingleClaim,
+	},
+	arbor.Route{
+		"AcceptClaim",
+		"PUT",
+		"/gigs/claims/{claim_id}",
+		AcceptClaim,
+	},
+	arbor.Route{
+		"DeleteClaim",
+		"DELETE",
+		"/gigs/claims/{claim_id}",
+		DeleteClaim,
+	},
 }
 
 //Route handler
@@ -105,7 +105,7 @@ func CreateClaim(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditGig(w http.ResponseWriter, r *http.Request) {
-    	arbor.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
+	arbor.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeleteGig(w http.ResponseWriter, r *http.Request) {
