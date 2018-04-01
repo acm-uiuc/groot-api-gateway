@@ -16,7 +16,7 @@ ADD . $GOPATH/src/github.com/acm-uiuc/groot-api-gateway
 WORKDIR $GOPATH/src/github.com/acm-uiuc/groot-api-gateway
 
 # Download and install external dependencies
-RUN dep ensure
+RUN dep ensure -vendor-only
 
 # Build groot
 RUN ./build.sh
