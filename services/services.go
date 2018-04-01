@@ -14,7 +14,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/acm-uiuc/arbor"
+	"github.com/arbor-dev/arbor"
 )
 
 var Routes = arbor.RouteCollection{

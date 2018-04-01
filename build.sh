@@ -9,7 +9,7 @@ mkdir -p log/prod
 #																		#
 #																		#
 #########################################################################	
-go get -u github.com/acm-uiuc/arbor/...
+go get -u github.com/arbor-dev/arbor/...
 
 echo Building config
 go install github.com/acm-uiuc/groot-api-gateway/config

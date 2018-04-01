@@ -11,10 +11,10 @@
 package services
 
 import (
-    "net/http"
+	"net/http"
 
-    "github.com/acm-uiuc/arbor"
-    "github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/arbor-dev/arbor"
 )
 
 //Location
@@ -25,30 +25,30 @@ const RequestFormat string = "JSON"
 
 //API Interface
 var RequestRoutes = arbor.RouteCollection{
-    arbor.Route{
-        "PostRequest",
-        "POST",
-        "/request",
-        PostRequest,
-    },
-    arbor.Route{
-        "GetRequest",
-        "GET",
-        "/request",
-        GetRequest,
-    },
-    arbor.Route{
-        "GetRequestByID",
-        "GET",
-        "/request/{id}",
-        GetRequestByID,
-    },
-    arbor.Route{
-        "UpdateRequest",
-        "PUT",
-        "/request/{id}",
-        UpdateRequest,
-    },
+	arbor.Route{
+		"PostRequest",
+		"POST",
+		"/request",
+		PostRequest,
+	},
+	arbor.Route{
+		"GetRequest",
+		"GET",
+		"/request",
+		GetRequest,
+	},
+	arbor.Route{
+		"GetRequestByID",
+		"GET",
+		"/request/{id}",
+		GetRequestByID,
+	},
+	arbor.Route{
+		"UpdateRequest",
+		"PUT",
+		"/request/{id}",
+		UpdateRequest,
+	},
 }
 
 // arbor.Route handler

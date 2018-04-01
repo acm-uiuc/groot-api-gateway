@@ -13,8 +13,8 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/arbor"
 	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/arbor-dev/arbor"
 )
 
 //Location

@@ -11,10 +11,10 @@
 package services
 
 import (
-    "net/http"
+	"net/http"
 
-    "github.com/acm-uiuc/arbor"
-    "github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/arbor-dev/arbor"
 )
 
 //Location
@@ -25,15 +25,15 @@ const NotificationFormat string = "JSON"
 
 //API Interface
 var NotificationRoutes = arbor.RouteCollection{
-    arbor.Route{
-        "PostNotification",
-        "POST",
-        "/notification",
-        PostNotification,
-    },
+	arbor.Route{
+		"PostNotification",
+		"POST",
+		"/notification",
+		PostNotification,
+	},
 }
 
 // arbor.Route handler
 func PostNotification(w http.ResponseWriter, r *http.Request) {
-    arbor.POST(w, NotificationURL+r.URL.String(), NotificationFormat, "", r)
+	arbor.POST(w, NotificationURL+r.URL.String(), NotificationFormat, "", r)
 }
