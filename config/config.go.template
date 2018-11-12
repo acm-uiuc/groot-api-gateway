@@ -11,6 +11,7 @@ const AuthURL string = "http://localhost:8008"
 const AuthToken string = ""
 
 //Service hosts
+const ADURL = "http://localhost:8998"
 const CreditsURL = "http://localhost:8765"
 const EventsURL = "http://localhost:8002"
 const GigsURL = "http://localhost:8964"
