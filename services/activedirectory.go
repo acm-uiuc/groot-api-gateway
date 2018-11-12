@@ -24,7 +24,7 @@ const ADURL string = config.ADURL
 const ADFormat string = "JSON"
 
 //API Interface
-var UsersRoutes = arbor.RouteCollection{
+var ADRoutes = arbor.RouteCollection{
 	arbor.Route{
 		"AddUser",
 		"POST",
